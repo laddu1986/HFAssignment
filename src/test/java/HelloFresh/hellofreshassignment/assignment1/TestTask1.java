@@ -87,7 +87,7 @@ public class TestTask1 {
 			String osType = System.getProperty("os.name").toLowerCase();
 			if(osType.indexOf("mac") >= 0)
 			      file = new File(PATH + "/" + appPropertiesFile);
-			else if(osType.indexOf("nix") >= 0)
+			else if(osType.indexOf("lin") >= 0)
 				  file = new File(PATH + "/" + appPropertiesFile);
 			else 
 				  file = new File(PATH + "\\" + appPropertiesFile);
