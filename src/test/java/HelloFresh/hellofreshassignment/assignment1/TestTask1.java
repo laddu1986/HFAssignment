@@ -54,7 +54,7 @@ public class TestTask1 {
 	String PATH = null;
 	
 	//Property Files
-	private String appPropertiesFile = "\\user.properties";
+	private String appPropertiesFile = "user.properties";
 	
 	private String URL=System.getProperty("url");
 	
@@ -75,6 +75,7 @@ public class TestTask1 {
 	@Before
 	public void setUp(){
 		
+		File file= null;
 		FileInputStream fileInput =null;
 		
 		try {
@@ -82,7 +83,14 @@ public class TestTask1 {
 			Path currentRelativePath = Paths.get("");
 			PATH = currentRelativePath.toAbsolutePath().toString();
 			System.out.println("Getting the New User Details from the Properties file");
-			File file = new File(PATH + appPropertiesFile);
+			
+			String osType = System.getProperty("os.name").toLowerCase();
+			if(osType.indexOf("mac") >= 0)
+			      file = new File(PATH + "/" + appPropertiesFile);
+			else if(osType.indexOf("nix") >= 0)
+				  file = new File(PATH + "/" + appPropertiesFile);
+			else 
+				  file = new File(PATH + "\\" + appPropertiesFile);
 			fileInput = new FileInputStream(file);
 			Properties properties = new Properties();
 			properties.load(fileInput);
