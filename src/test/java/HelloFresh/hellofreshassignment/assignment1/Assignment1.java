@@ -9,16 +9,16 @@ import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 
 public class Assignment1 {
 	
@@ -54,7 +54,7 @@ public class Assignment1 {
 	private String register_link_locator = "//div[@class='modal-content']//p/a[text()='Register']";
 	private String register_button_locator = "//button[@id='register-button']";
 	
-	@BeforeTest
+	@Before
 	public void setUp(){
 		
 		FileInputStream fileInput =null;
@@ -150,7 +150,7 @@ public class Assignment1 {
 		waitForElementToPresent("//nav[@id='nav-navigation']//li//span[@ng-bind='::customer.firstName']", 30);
 		
 		System.out.println("Verifying that register is successful and correct User name is appearing on the screen");
-		Assert.assertTrue(driver.findElement(By.xpath("//nav[@id='nav-navigation']//li//span[@ng-bind='::customer.firstName']")).getText().equals(firstName), "Login successful");
+		Assert.assertTrue("Login Failed", driver.findElement(By.xpath("//nav[@id='nav-navigation']//li//span[@ng-bind='::customer.firstName']")).getText().equals(firstName));
 		
 		System.out.println("Navigating to the Homepage of Hello Fresh");
         driver.findElement(By.xpath("//nav//img[@alt='HelloFresh']")).click();
@@ -180,15 +180,15 @@ public class Assignment1 {
 		String planPriceInCart = driver.findElement(By.xpath("//div[@ui-view='summary']//p//strong")).getText();
 		
 		System.out.println("Verifying Plan price on Checkout Page as it should be same as appearing on Plans Page");
-		Assert.assertTrue(planPriceInCart.equals(planPrice), "Price is not matching");
+		Assert.assertTrue("Price is not matching", planPriceInCart.equals(planPrice));
 		
 		System.out.println("Verifying Plan Type on Checkout Page as it should be same as appearing on Plans Page");
 		String boxTypeInCart = driver.findElement(By.xpath("//div[@ui-view='summary']//strong[@applanga='classic-menu-title']")).getText();
-		Assert.assertTrue(boxType.contains("Classic") && boxTypeInCart.contains("Classic"), "Box type is not matching");
+		Assert.assertTrue("Box type is not matching", boxType.contains("Classic") && boxTypeInCart.contains("Classic"));
 		
 	}
 	
-	@AfterTest
+	@After
 	public void cleanUp(){
 		driver.quit();
 	}
