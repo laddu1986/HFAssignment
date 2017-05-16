@@ -1,3 +1,21 @@
+/**Task 1 - Java, Selenium Webdriver and Maven
+
+ 
+
+Hellofresh is present in several countries as we can see in https://www.hellofresh.co.uk and https://www.hellofresh.com.
+
+ 
+
+Based on that, create automated tests for following scenarios covering both countries mentioned above:
+
+Register new user
+Login with existing user
+Add classic box/plan to cart and validate that box and price are ok in checkout page
+ 
+
+Tip: It would be really nice if same test could run in different countries just based on parameter when running it from command line!  Don't forget to use Maven on the project!
+
+**/
 package HelloFresh.hellofreshassignment.assignment1;
 
 import java.io.File;
@@ -20,7 +38,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Assignment1 {
+public class TestTask1 {
 	
 	public WebDriver driver;
 	private String gender;
