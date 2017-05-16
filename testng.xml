@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="HelloFresh.hellofreshassignment.assignment1.Assignment1"/>
+      <class name="HelloFresh.hellofreshassignment.assignment2.runner.TestGetAll"/>
+      <class name="HelloFresh.hellofreshassignment.assignment2.runner.TestGetSpecific"/>
+      <class name="HelloFresh.hellofreshassignment.assignment2.runner.TestPostCountry"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
